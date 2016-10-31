@@ -15,16 +15,8 @@ $(function() {
 	$('body').terminal(function(cmd, term) {
  
 		if(cmd == 'apt-get curriculo'){
-			term.echo('baixando...');
-			$.ajax({
-			url: 'curriculo.pdf',
-			type: 'POST',
-			success: function() {
+			term.echo('carregando...');
 			window.location = 'curriculo.pdf';
-			}
-			});
-		
-
 		}else{
 			term.echo('comando não encontrado.');
 		}

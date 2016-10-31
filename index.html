@@ -16,7 +16,9 @@ $(function() {
  
 		if(cmd == 'apt-get curriculo'){
 			term.echo('carregando...');
-			window.location = 'curriculo.pdf';
+			link = document.createElement('a');
+			link.setAttribute('href', 'curriculo.pdf');
+			link.click();
 		}else{
 			term.echo('comando não encontrado.');
 		}
@@ -37,9 +39,6 @@ $(function() {
 			term.echo('\n');
 			term.set_command('');
 			term.echo(msg[i]);
-			link = document.createElement('a');
-			link.setAttribute('href', 'curriculo.pdf');
-			link.click();
 		}
 				   
 

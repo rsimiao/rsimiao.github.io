@@ -1,1 +1,59 @@
-<h1>Olá terraqueos</h1>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ricardo Simiao</title>
+    <meta name="author" content="Ricardo Simião"/>
+    <meta name="Description" content="Um pouco sobre mim."/>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery.mousewheel-min.js"></script>
+    <script src="js/jquery.terminal-src.js"></script>
+    <link href="css/jquery.terminal.css" rel="stylesheet"/>
+
+<script>
+$(function() {
+
+	$('body').terminal(function(cmd, term) {
+ 
+		if(cmd == 'apt-get curriculo'){
+			term.echo('baixando...');
+			$.ajax({
+			url: 'curriculo.pdf',
+			type: 'POST',
+			success: function() {
+			window.location = 'curriculo.pdf';
+			}
+			});
+		
+
+		}else{
+			term.echo('comando não encontrado.');
+		}
+
+	},{
+	prompt:'[[b;#00ee11;]guest@rsimiao~#>]',
+	name:'consl',
+	greetings:'d[ o_0 ]b <Ricardo Simiao>',
+	onInit:function(term){
+	    var msg = ['Ol&aacute;, Meu nome &eacute; Ricardo e sou programador, atualmente trabalho com android',
+				   'na maior parte das vezes com aplicativos hibridos. Tenho experi&ecirc;ncia tamb&eacute;m',
+				   'com c# , asp.net e web api. Adoro tecnologias novas, tenho interesse em ',
+				   'aplica&ccedil;&otilde;es m&oacute;veis, wearables e intelig&ecirc;ncia artificial.',
+				   'Caso queira ver meu  curr&iacute;culo, basta digitar o comando [[b;#00ee11;]apt-get curriculo]',
+				   'at&eacute; mais.'];
+		term.echo('\n');
+		for(i=0;i<=msg.length;i++){
+			term.echo('\n');
+			term.set_command('');
+			term.echo(msg[i]);
+		}
+				   
+
+	}
+	});
+   
+});
+    </script>
+  </head>
+<body>
+</body>
+</html>
